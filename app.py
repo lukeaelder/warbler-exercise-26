@@ -385,6 +385,11 @@ def homepage():
     else:
         return render_template('home-anon.html')
 
+@app.errorhandler(404)
+def error_redirect(e):
+    flash("Page not found, 404 ERROR", "danger")
+    return redirect("/")
+
 
 ##############################################################################
 # Turn off all caching in Flask
